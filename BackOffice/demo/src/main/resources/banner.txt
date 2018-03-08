@@ -1,0 +1,1 @@
+banner banner ${application.formatted-version} ${spring-boot.version} ${spring-boot.formatted-version} ${application.title}

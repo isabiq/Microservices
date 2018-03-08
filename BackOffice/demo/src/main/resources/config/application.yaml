@@ -1,0 +1,12 @@
+spring:
+  profiles: default
+foo:
+  list:
+    - name: my name
+      description: my description
+---
+spring:
+  profiles: devOracle
+foo:
+  list:
+       - name: my another name
