@@ -28,7 +28,4 @@ public class Parameters {
     @Value("${app.java.version}")
     private String javaVersion;
     
-    @Value("${parent.property}")
-    private String parentProperty;
-    
 }

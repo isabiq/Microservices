@@ -11,22 +11,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationPropertiesTest {
-	
-	@Autowired
-	Parameters parameters;
-
-	@Test
-	public void verifyParameterForDevProperties() {
-
-		assertThat(parameters.getEnv()).isEqualTo("testDev");
-
-	}
-	
-	@Test
-	public void verifyParameterFromApplicationProperties() {
-
-		assertThat(parameters.getParentProperty()).isEqualTo("parent");
-
-	}
-
+    
+    @Autowired
+    Parameters parameters;
+    
+    @Test
+    public void verifyParameterForDevProperties() {
+        
+        assertThat(parameters.getEnv()).isEqualTo("devH2");
+        
+    }
+    
 }

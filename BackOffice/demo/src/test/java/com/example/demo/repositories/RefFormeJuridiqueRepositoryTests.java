@@ -24,56 +24,54 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RefFormeJuridiqueRepositoryTests {
-	
-	@Autowired
+    
+    @Autowired
     RefFormeJuridiqueRepository refFormeJuridiqueRepository;
-	
-	Runnable r ;
-	
-	@Before
-	public void beforeEachTest() throws Exception{
-		System.out.println("before");
-			Function<Integer, Boolean> isPositif = (valeur) -> {
-				return valeur >= 0;
-			};
-			System.out.println(isPositif.apply(5));
-			
-			Callable<String> monCallable = () -> "Mon traitement";
-			
-			Consumer<String> consumer = (toBeprint)->System.out.println(toBeprint);
-			Consumer<String> consumer2 = consumer.andThen((toBeprint)->System.out.println(toBeprint));
-			
-			consumer2.accept("younes");
-			
-			System.out.println(monCallable.call());
-	}
-
-	@Test
-	public void displayAllTest(){
-		refFormeJuridiqueRepository.findAll().forEach(
-				refFormeJuridique->
-				{
-					 System.out.println(refFormeJuridique.getId());
-					 System.out.println(refFormeJuridique.getLibelle());
-				}
-		);
-	}
-	@Test
-	public void filterByIdEqualsOneTest(){
-		assertThat(refFormeJuridiqueRepository.findAll().stream()
-		.filter(refFormeJuridique->refFormeJuridique.getId().equals(Long.valueOf(1)))
-		.collect(Collectors.toList()).size()).isEqualTo(1);
-		;
-	}
-	
-	@Test
-	public void findByIdTest(){
-		assertThat(refFormeJuridiqueRepository.findById(1l).getLibelle().equals("La Société en nom collectif (SNC)"));
-	}
-	
-	@Test
-	public void findByLibelleTest(){
-		assertThat(refFormeJuridiqueRepository.findByLibelle("La Société en nom collectif (SNC)").getId().equals(Long.valueOf(1)));
-	}
-
+    
+    Runnable r;
+    
+    @Before
+    public void beforeEachTest() throws Exception {
+        System.out.println("before");
+        Function<Integer, Boolean> isPositif = (valeur) -> {
+            return valeur >= 0;
+        };
+        System.out.println(isPositif.apply(5));
+        
+        Callable<String> monCallable = () -> "Mon traitement";
+        
+        Consumer<String> consumer = (toBeprint) -> System.out.println(toBeprint);
+        Consumer<String> consumer2 = consumer.andThen((toBeprint) -> System.out.println(toBeprint));
+        
+        consumer2.accept("younes");
+        
+        System.out.println(monCallable.call());
+    }
+    
+    @Test
+    public void displayAllTest() {
+        refFormeJuridiqueRepository.findAll().forEach(refFormeJuridique -> {
+            System.out.println(refFormeJuridique.getId());
+            System.out.println(refFormeJuridique.getLibelle());
+        });
+    }
+    
+    @Test
+    public void filterByIdEqualsOneTest() {
+        assertThat(refFormeJuridiqueRepository.findAll().stream()
+                .filter(refFormeJuridique -> refFormeJuridique.getId().equals(Long.valueOf(1))).collect(Collectors.toList()).size())
+                        .isEqualTo(1);
+        ;
+    }
+    
+    @Test
+    public void findByIdTest() {
+        assertThat(refFormeJuridiqueRepository.findById(1l).getLibelle().equals("La Societe en nom collectif SNC"));
+    }
+    
+    @Test
+    public void findByLibelleTest() {
+        assertThat(refFormeJuridiqueRepository.findByLibelle("La Societe en nom collectif SNC").getId().equals(Long.valueOf(1)));
+    }
+    
 }

@@ -6,7 +6,20 @@ foo:
       description: my description
 ---
 spring:
+  profiles: devH2
+foo:
+  list:
+       - name: my another name H2
+---       
+spring:
   profiles: devOracle
 foo:
   list:
-       - name: my another name
+       - name: my another name Oracle*
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80

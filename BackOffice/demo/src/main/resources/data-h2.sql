@@ -1,1 +1,1 @@
-Insert into "prs_ref_forme_juridique" (ID,LIBELLE) values (1,'La Société en nom collectif (SNC)');
+Insert into PRS_REF_FORME_JURIDIQUE (ID,LIBELLE) values (1,'La Societe en nom collectif SNC');

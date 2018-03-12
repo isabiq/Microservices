@@ -17,26 +17,26 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "prs_ref_forme_juridique")
-public class RefFormeJuridique implements Serializable{
+public class RefFormeJuridique implements Serializable {
     
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
     private Long id;
     
-	@Column(nullable = false)
+    @Column(nullable = false)
     private String libelle;
     
-	
     protected RefFormeJuridique() {
-		super();
-	}
-
-	public Long getId() {
+        super();
+    }
+    
+    public Long getId() {
         return id;
     }
     
@@ -53,4 +53,3 @@ public class RefFormeJuridique implements Serializable{
     }
     
 }
-

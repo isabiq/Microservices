@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.RefFormeJuridique;
 import com.example.demo.services.RefFormeJuridiqueService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 @RequestMapping("/api")
@@ -27,6 +28,7 @@ public class DemoController {
     @Value("${msg}")
     String msg;
     
+    @HystrixCommand /* /hystrix.stream to monitor */
     @GetMapping("/all")
     public List<RefFormeJuridique> findAll() {
         System.out.println("hi" + this.msg);
@@ -34,7 +36,7 @@ public class DemoController {
     }
     
     @RequestMapping(value = "/formeJuridique/{id}", method = RequestMethod.GET)
-    public RefFormeJuridique findById(@PathVariable Long id) {
+    public RefFormeJuridique findById(@PathVariable("id") Long id) {
         return refFormeJuridiqueService.findById(id);
     }
     
