@@ -6,8 +6,14 @@ import org.springframework.data.repository.Repository;
 
 import com.example.demo.models.RefFormeJuridique;
 
-public interface RefFormeJuridiqueRepository extends Repository<RefFormeJuridique, Long>{
-		List<RefFormeJuridique> findAll();
-		RefFormeJuridique findById(Long id);
-		RefFormeJuridique findByLibelle(String libelle);
+/**
+ * @author y.nadir
+ *
+ */
+public interface RefFormeJuridiqueRepository extends Repository<RefFormeJuridique, Long> {
+    List<RefFormeJuridique> findAll();
+    
+    RefFormeJuridique findById(Long id);
+    
+    RefFormeJuridique findByLibelle(String libelle);
 }

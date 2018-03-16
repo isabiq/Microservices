@@ -4,6 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
+/**
+ * @author y.nadir
+ *
+ */
 @SpringBootApplication
 @EnableHystrixDashboard
 public class HystrixApplication {

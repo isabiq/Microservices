@@ -10,6 +10,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.core.ParameterizedTypeReference;
@@ -21,14 +22,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.democlient.config.RibbonConfiguration;
 import com.example.democlient.integration.dto.RefFormeJuridique;
 import com.example.democlient.integration.fallbacks.DemoServiceFeignClientFallback;
 
+/**
+ * @author y.nadir
+ *
+ */
 @SpringBootApplication
 @EnableFeignClients
 @EnableCircuitBreaker
 @EnableDiscoveryClient
-
+@RibbonClients(defaultConfiguration = RibbonConfiguration.class)
 public class DemoClientApplication {
     
     public static void main(String[] args) {

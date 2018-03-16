@@ -1,12 +1,14 @@
-package com.example.democlient;
+package com.example.democlient.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+
 /**
- * Created by Peter_Szanto on 6/2/2016.
+ * @author y.nadir
+ *
  */
 @Configuration
 public class Config {

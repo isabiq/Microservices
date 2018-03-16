@@ -11,3 +11,6 @@ eureka:
     lease:
       duration: 5
   
+  feign:
+  hystrix:
+    enabled: true

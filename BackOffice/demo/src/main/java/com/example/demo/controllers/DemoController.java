@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,10 @@ import com.example.demo.models.RefFormeJuridique;
 import com.example.demo.services.RefFormeJuridiqueService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+/**
+ * @author y.nadir
+ *
+ */
 @RestController
 @RequestMapping("/api")
 @RefreshScope
@@ -28,7 +33,12 @@ public class DemoController {
     @Value("${msg}")
     String msg;
     
-    @HystrixCommand /* /hystrix.stream to monitor */
+    /*
+     * http://host:demoAppPort/hystrix.stream to monitor in hystrix dashboard
+     * the fallBack is called in case there is a delay or whatever problem
+     * calling refFormeJuridiqueService.findAll() service
+     */
+    @HystrixCommand(fallbackMethod = "findAllFallBack")
     @GetMapping("/all")
     public List<RefFormeJuridique> findAll() {
         System.out.println("hi" + this.msg);
@@ -38,6 +48,11 @@ public class DemoController {
     @RequestMapping(value = "/formeJuridique/{id}", method = RequestMethod.GET)
     public RefFormeJuridique findById(@PathVariable("id") Long id) {
         return refFormeJuridiqueService.findById(id);
+    }
+    
+    public List<RefFormeJuridique> findAllFallBack() {
+        System.out.println("Hystrix Demo Rest Fall Back called");
+        return Collections.emptyList();
     }
     
 }

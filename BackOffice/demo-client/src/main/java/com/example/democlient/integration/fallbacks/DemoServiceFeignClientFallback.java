@@ -20,7 +20,7 @@ public class DemoServiceFeignClientFallback implements DemoServiceFeign {
     
     @Override
     public List<RefFormeJuridique> findAll() {
-        // TODO Auto-generated method stub
+        System.out.println("Feign Fall Back called");
         return Collections.emptyList();
     }
     

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.democlient.integration.dto.RefFormeJuridique;
-import com.example.democlient.integration.interfaces.DemoService;
 import com.example.democlient.integration.interfaces.DemoServiceFeign;
 
 /**
@@ -20,16 +19,16 @@ import com.example.democlient.integration.interfaces.DemoServiceFeign;
 public class DemoServiceFeignClient implements DemoServiceFeign {
     
     @Autowired
-    private DemoService demoService;
+    private DemoServiceFeign demoServiceFeign;
     
     @Override
     public List<RefFormeJuridique> findAll() {
-        return demoService.findAll();
+        return demoServiceFeign.findAll();
     }
     
     @Override
     public RefFormeJuridique findById(Long id) {
-        return demoService.findById(id);
+        return demoServiceFeign.findById(id);
     }
     
 }
