@@ -7,9 +7,14 @@ foo:
 ---
 spring:
   profiles: devH2
+  activemq:
+    in-memory: true
+    pool:
+      enabled: false
 foo:
   list:
        - name: my another name H2
+ 
 ---       
 spring:
   profiles: devOracle
@@ -23,3 +28,6 @@ eureka:
   instance:
     hostname: ${APPLICATION_DOMAIN}
     nonSecurePort: 80
+
+
+      
