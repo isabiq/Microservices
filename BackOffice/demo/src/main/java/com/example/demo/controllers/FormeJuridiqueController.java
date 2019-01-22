@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.controllers.exceptions.FormeJuridiqueNotFoundException;
+import com.example.demo.controllers.exceptions.constants.ExceptionCodes;
 import com.example.demo.models.RefFormeJuridique;
 import com.example.demo.services.readers.RefFormeJuridiqueServiceReader;
 import com.example.demo.services.writers.RefFormeJuridiqueServiceWriter;
@@ -60,7 +61,8 @@ public class FormeJuridiqueController {
     
     @RequestMapping(value = "/formeJuridiques/{id}", method = RequestMethod.GET)
     public RefFormeJuridique findById(@PathVariable("id") Long id) {
-        return refFormeJuridiqueServiceReader.findById(id).orElseThrow(() -> new FormeJuridiqueNotFoundException(id));
+        return refFormeJuridiqueServiceReader.findById(id)
+                .orElseThrow(() -> new FormeJuridiqueNotFoundException(ExceptionCodes.FORME_JURIDIQUE_NOT_FOUND, id));
     }
     
     @PostMapping("/formeJuridiques")
