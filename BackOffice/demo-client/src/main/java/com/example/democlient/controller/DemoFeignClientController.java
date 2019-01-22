@@ -26,12 +26,12 @@ public class DemoFeignClientController {
     @Autowired
     DemoServiceFeignClient demoServiceFeignClient;
     
-    @GetMapping("/formeJuridique/all")
+    @GetMapping("/formeJuridiques")
     public List<RefFormeJuridique> findAll() {
         return demoServiceFeignClient.findAll();
     }
     
-    @RequestMapping(value = "/formeJuridique/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/formeJuridiques/{id}", method = RequestMethod.GET)
     public RefFormeJuridique findById(@PathVariable Long id) {
         return demoServiceFeignClient.findById(id);
     }

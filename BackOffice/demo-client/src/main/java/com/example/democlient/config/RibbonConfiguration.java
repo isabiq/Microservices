@@ -18,7 +18,7 @@ public class RibbonConfiguration {
         /*
          * The PingUrl implementation will check if services are alive.
          */
-        return new PingUrl(false, "demo-service/api/all");
+        return new PingUrl(false, "demo-service/api/formeJuridiques");
     }
     
     @Bean

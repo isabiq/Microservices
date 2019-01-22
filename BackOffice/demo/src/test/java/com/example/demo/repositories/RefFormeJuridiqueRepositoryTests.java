@@ -66,12 +66,12 @@ public class RefFormeJuridiqueRepositoryTests {
     
     @Test
     public void findByIdTest() {
-        assertThat(refFormeJuridiqueRepository.findById(1l).getLibelle().equals("La Societe en nom collectif SNC"));
+        assertThat(refFormeJuridiqueRepository.findOne(1l).getLibelle().equals("La Societe en nom collectif SNC"));
     }
     
     @Test
     public void findByLibelleTest() {
-        assertThat(refFormeJuridiqueRepository.findByLibelle("La Societe en nom collectif SNC").getId().equals(Long.valueOf(1)));
+        assertThat(refFormeJuridiqueRepository.findByLibelle("La Societe en nom collectif SNC").size() == 1);
     }
     
 }

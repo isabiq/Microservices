@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.rule.OutputCapture;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.services.RefFormeJuridiqueService;
+import com.example.demo.services.readers.RefFormeJuridiqueServiceReader;
 
 /**
  * @author y.nadir
@@ -27,7 +27,7 @@ public class MonitorAopTests {
 	public OutputCapture outputCapture = new OutputCapture();
 	
 	@Autowired
-    RefFormeJuridiqueService refFormeJuridiqueService;
+    RefFormeJuridiqueServiceReader refFormeJuridiqueService;
 	
 
 	

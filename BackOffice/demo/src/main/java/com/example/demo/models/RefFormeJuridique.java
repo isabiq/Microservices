@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author y.nadir
@@ -27,9 +29,11 @@ public class RefFormeJuridique implements Serializable {
     @Id
     @GeneratedValue
     @Column(name = "ID")
+    @NotNull
     private Long id;
     
     @Column(nullable = false)
+    @Size(max = 100)
     private String libelle;
     
     protected RefFormeJuridique() {

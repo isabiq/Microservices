@@ -1,9 +1,10 @@
 /**
  * 
  */
-package com.example.demo.services;
+package com.example.demo.services.readers;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.models.RefFormeJuridique;
 
@@ -11,10 +12,10 @@ import com.example.demo.models.RefFormeJuridique;
  * @author y.nadir
  *
  */
-public interface RefFormeJuridiqueService {
+public interface RefFormeJuridiqueServiceReader {
     
     List<RefFormeJuridique> findAll();
     
-    RefFormeJuridique findById(Long id);
+    Optional<RefFormeJuridique> findById(Long id);
     
 }

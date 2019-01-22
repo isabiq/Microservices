@@ -17,7 +17,7 @@ import com.example.democlient.integration.dto.RefFormeJuridique;
  */
 
 public interface DemoService {
-    @RequestMapping(value = "/api/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/formeJuridique/all", method = RequestMethod.GET)
     List<RefFormeJuridique> findAll();
     
     @RequestMapping(value = "/api/formeJuridique/{id}", method = RequestMethod.GET)

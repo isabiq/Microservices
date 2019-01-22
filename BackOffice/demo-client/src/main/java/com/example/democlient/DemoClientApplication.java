@@ -69,8 +69,8 @@ public class DemoClientApplication {
         @Override
         public void run(String... strings) throws Exception {
             // use the "smart" Eureka-aware RestTemplate
-            ResponseEntity<List<RefFormeJuridique>> exchange = this.restTemplate.exchange("http://demo-service/api/all", HttpMethod.GET,
-                    null, new ParameterizedTypeReference<List<RefFormeJuridique>>() {
+            ResponseEntity<List<RefFormeJuridique>> exchange = this.restTemplate.exchange("http://demo-service/api/formeJuridiques",
+                    HttpMethod.GET, null, new ParameterizedTypeReference<List<RefFormeJuridique>>() {
                     });
             
             exchange.getBody().forEach((refForme) -> System.out.println(refForme.getLibelle()));
@@ -95,10 +95,10 @@ public class DemoClientApplication {
     @FeignClient(name = "demo-service", fallback = DemoServiceFeignClientFallback.class)
     interface DemoClient {
         
-        @RequestMapping(value = "/api/all", method = RequestMethod.GET)
+        @RequestMapping(value = "/api/formeJuridiques", method = RequestMethod.GET)
         List<RefFormeJuridique> findAll();
         
-        @RequestMapping(value = "/api/formeJuridique/{id}", method = RequestMethod.GET)
+        @RequestMapping(value = "/api/formeJuridiques/{id}", method = RequestMethod.GET)
         public RefFormeJuridique findById(@PathVariable("id") Long id);
     }
 }

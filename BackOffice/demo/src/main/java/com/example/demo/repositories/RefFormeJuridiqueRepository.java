@@ -2,7 +2,7 @@ package com.example.demo.repositories;
 
 import java.util.List;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.models.RefFormeJuridique;
 
@@ -10,10 +10,6 @@ import com.example.demo.models.RefFormeJuridique;
  * @author y.nadir
  *
  */
-public interface RefFormeJuridiqueRepository extends Repository<RefFormeJuridique, Long> {
-    List<RefFormeJuridique> findAll();
-    
-    RefFormeJuridique findById(Long id);
-    
-    RefFormeJuridique findByLibelle(String libelle);
+public interface RefFormeJuridiqueRepository extends JpaRepository<RefFormeJuridique, Long> {
+    List<RefFormeJuridique> findByLibelle(String libelle);
 }

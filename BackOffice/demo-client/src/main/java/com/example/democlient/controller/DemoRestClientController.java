@@ -25,12 +25,12 @@ public class DemoRestClientController {
     @Autowired
     DemoServiceRestClient demoServiceRestClient;
     
-    @RequestMapping(value = "/formeJuridique/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/formeJuridiques", method = RequestMethod.GET)
     public List<RefFormeJuridique> findAll() {
         return demoServiceRestClient.findAll();
     }
     
-    @RequestMapping(value = "/formeJuridique/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/formeJuridiques/{id}", method = RequestMethod.GET)
     public RefFormeJuridique findById(@PathVariable Long id) {
         return demoServiceRestClient.findById(id);
     }
