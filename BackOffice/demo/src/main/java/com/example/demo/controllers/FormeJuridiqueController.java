@@ -67,6 +67,7 @@ public class FormeJuridiqueController {
     
     @PostMapping("/formeJuridiques")
     public RefFormeJuridique addFormeJurdique(@RequestBody @Valid RefFormeJuridique refFormeJuridique) {
+        // TODO: add mapstruct for conversion
         return refFormeJuridiqueServiceWriter.add(refFormeJuridique);
     }
     

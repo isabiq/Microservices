@@ -22,20 +22,25 @@ import com.example.demo.services.readers.RefFormeJuridiqueServiceReader;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MonitorAopTests {
-	
-	@Rule
-	public OutputCapture outputCapture = new OutputCapture();
-	
-	@Autowired
+    
+    @Rule
+    public OutputCapture outputCapture = new OutputCapture();
+    
+    @Autowired
     RefFormeJuridiqueServiceReader refFormeJuridiqueService;
-	
-
-	
-	@Test
-	public void findByLibelleTest(){
-		refFormeJuridiqueService.findAll();
-		String output = this.outputCapture.toString();
-		assertThat(output).contains("Completed: execution(List com.example.demo.services.impl.RefFormeJuridiqueServiceImpl.findAll())");
-	}
-
+    
+    @Test
+    public void findAllTest() {
+        refFormeJuridiqueService.findAll();
+        String output = this.outputCapture.toString();
+        assertThat(output).contains("Completed: execution(List com.example.demo.services.impl.RefFormeJuridiqueServiceImpl.findAll())");
+    }
+    
+    @Test
+    public void findByIdTest() {
+        refFormeJuridiqueService.findById(1l);
+        String output = this.outputCapture.toString();
+        assertThat(output).contains("Completed: execution(List com.example.demo.services.impl.RefFormeJuridiqueServiceImpl.findById())");
+    }
+    
 }

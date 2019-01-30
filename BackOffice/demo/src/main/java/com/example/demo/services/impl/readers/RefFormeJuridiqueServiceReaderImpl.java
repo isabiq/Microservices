@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.models.RefFormeJuridique;
 import com.example.demo.properties.FooProperties;
@@ -20,6 +21,7 @@ import com.example.demo.services.readers.RefFormeJuridiqueServiceReader;
  *
  */
 @Service
+@Transactional(readOnly = true)
 public class RefFormeJuridiqueServiceReaderImpl implements RefFormeJuridiqueServiceReader {
     
     @Autowired
