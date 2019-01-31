@@ -27,8 +27,8 @@ public class DemoServiceRestClient implements DemoService {
     
     @Override
     public List<RefFormeJuridique> findAll() {
-        ResponseEntity<List<RefFormeJuridique>> exchange = this.restTemplate.exchange("http://demo-service/api/all", HttpMethod.GET, null,
-                new ParameterizedTypeReference<List<RefFormeJuridique>>() {
+        ResponseEntity<List<RefFormeJuridique>> exchange = this.restTemplate.exchange("http://demo-service/api/formeJuridiques",
+                HttpMethod.GET, null, new ParameterizedTypeReference<List<RefFormeJuridique>>() {
                 });
         
         return exchange.getBody();
@@ -37,7 +37,7 @@ public class DemoServiceRestClient implements DemoService {
     
     @Override
     public RefFormeJuridique findById(Long id) {
-        ResponseEntity<RefFormeJuridique> exchange = this.restTemplate.exchange("http://demo-service/api/formeJuridique/{id}",
+        ResponseEntity<RefFormeJuridique> exchange = this.restTemplate.exchange("http://demo-service/api/formeJuridiques/{id}",
                 HttpMethod.GET, null, new ParameterizedTypeReference<RefFormeJuridique>() {
                 }, id);
         
