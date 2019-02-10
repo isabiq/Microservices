@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mobile.device.Device;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,12 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quebic.auth.api.security.JwtTokenUtil;
 import com.quebic.auth.api.security.dto.JwtAuthenticationDto;
 import com.quebic.auth.api.security.dto.JwtResponse;
-import com.quebic.common.exception.UnAuthorizedAccessException;
-import com.quebic.common.util.ControllerBase;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthController extends ControllerBase {
+public class AuthController {
     
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -57,7 +56,7 @@ public class AuthController extends ControllerBase {
         Date expiration = jwtTokenUtil.getExpirationDateFromToken(token);
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         
-        return makeResponse(new JwtResponse(token, dateFormat.format(expiration)));
+        return new ResponseEntity(new JwtResponse(token, dateFormat.format(expiration)),HttpStatus.OK);
         
     }
     
@@ -67,9 +66,9 @@ public class AuthController extends ControllerBase {
         
         String authenticatedUserName = authentication.getName();
         if (authenticatedUserName.equals("anonymousUser"))
-            throw new UnAuthorizedAccessException(authenticatedUserName);
+            throw new Exception(authenticatedUserName);
         else
-            return makeResponse((UserDetails) authentication.getPrincipal());
+            return new ResponseEntity((UserDetails) authentication.getPrincipal(),HttpStatus.OK);
     }
     
 }

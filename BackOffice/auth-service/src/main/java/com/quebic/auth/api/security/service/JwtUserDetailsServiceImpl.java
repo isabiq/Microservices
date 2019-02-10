@@ -1,7 +1,6 @@
 package com.quebic.auth.api.security.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import com.quebic.auth.api.model.User;
 import com.quebic.auth.api.security.JwtUser;
-import com.quebic.common.model.Permission;
 
 @Service
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
@@ -52,12 +50,11 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
             user.setAttempts(1);
             user.setLastLoggedOn(new Date());
             user.setLastPasswordResetDate(new Date());
-            user.setPermissions(Arrays.asList(new Permission[]{new Permission().setCode("User");}));
             
             if (logger.isDebugEnabled())
                 logger.debug("user - {}", user);
             
-            userDetails = new JwtUser(user, getAuthorities(user), (user.getStatus() == 1) ? true : false);
+            userDetails = new JwtUser(user, getAuthorities(user), true);
             
             if (userDetails.getAuthorities().isEmpty()) {
                 logger.debug("User - {}, Permission count - 0", username);

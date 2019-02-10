@@ -98,11 +98,11 @@
         </dependency>
         <!-- Swagger -->
         <!-- Drivers -->
-        <dependency>
-            <groupId>ojdbc</groupId>
-            <artifactId>ojdbc</artifactId>
-            <version>${ojdbc.version}</version>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>ojdbc</groupId> -->
+<!--             <artifactId>ojdbc</artifactId> -->
+<!--             <version>${ojdbc.version}</version> -->
+<!--         </dependency> -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

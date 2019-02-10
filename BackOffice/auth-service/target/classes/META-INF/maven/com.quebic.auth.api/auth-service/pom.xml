@@ -29,10 +29,11 @@
 	</properties>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
-	</parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        <relativePath /> <!-- lookup parent from repository -->
+    </parent>
 
 	<dependencies>
 
@@ -101,11 +102,11 @@
 		</dependency>
 		
 		<!-- common-lib -->
-		<dependency>
-			<groupId>com.quebic.common</groupId>
-			<artifactId>common-lib</artifactId>
-			<version>${common.lib.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.quebic.common</groupId> -->
+<!-- 			<artifactId>common-lib</artifactId> -->
+<!-- 			<version>${common.lib.version}</version> -->
+<!-- 		</dependency> -->
 
 		<!-- Spring - Devtools for refresh server -->
 		<dependency>

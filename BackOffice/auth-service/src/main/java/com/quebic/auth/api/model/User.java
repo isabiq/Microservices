@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.quebic.common.model.EntityBase;
-import com.quebic.common.model.Permission;
 
-public class User extends EntityBase {
+public class User {
+	
+	private String id;
     
     private String email;
     
@@ -27,8 +27,7 @@ public class User extends EntityBase {
     private Integer attempts;
     
     private List<Role> roles = new ArrayList<>();
-    
-    private List<Permission> permissions = new ArrayList<>();
+   
     
     private EmailVerification emailVerification;
     
@@ -109,15 +108,7 @@ public class User extends EntityBase {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
-    
-    @JsonIgnore
-    public List<Permission> getPermissions() {
-        return permissions;
-    }
-    
-    public void setPermissions(List<Permission> permissions) {
-        this.permissions = permissions;
-    }
+   
     
     @JsonIgnore
     public EmailVerification getEmailVerification() {
@@ -152,5 +143,15 @@ public class User extends EntityBase {
     public void setBuyerProfile(BuyerProfile buyerProfile) {
         this.buyerProfile = buyerProfile;
     }
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+    
+    
     
 }
